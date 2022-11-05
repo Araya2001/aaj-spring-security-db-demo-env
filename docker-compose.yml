@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  ## POSTGRESQL ##
+  postgres:
+    container_name: postgres_db_security_demo
+    image: postgres
+    environment:
+      POSTGRES_USER: dev-ninja
+      POSTGRES_PASSWORD: ujac8ozJExiHFfcTNPd6
+      POSTGRES_DB: security_demo
+    ports:
+      - "5432:5432"
+    volumes:
+      - 'postgres-data:/var/lib/postgresql/data/'
+    networks:
+      - security_demo_net
+    restart: always
+
+networks:
+  security_demo_net:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local
