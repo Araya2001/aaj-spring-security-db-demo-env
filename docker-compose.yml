@@ -18,14 +18,14 @@ services:
     restart: always
   api:
     container_name: spring_api
-    build: ./api/Dockerfile
+    build: ./api
     ports:
       - "8080:8080"
     networks:
       - security_demo_net  
   web:
     container_name: next_web
-    build: ./web/Dockerfile
+    build: ./web
     ports:
       - "3000:3000"
     networks:
